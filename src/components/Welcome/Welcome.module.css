@@ -1,0 +1,41 @@
+.start-section {
+  background-color: #0c0d0e;
+  background-image: url("../../assets/stars.svg");
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-top: 175px;
+  text-align: center;
+}
+.welcome-text {
+  color: #fe3b1f;
+  font-size: 96px;
+  line-height: 119px;
+  font-family: "Rowdies-Regular";
+  font-weight: 400;
+  margin-bottom: 105px;
+  padding: 30px 0px 30px;
+}
+.start-btn {
+  background: #fe3b1f;
+  width: 395px;
+  height: 79px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29.26px;
+  margin-bottom: 18px;
+}
+.submitted-applications {
+  color: #ffffff;
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29.26px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  margin-bottom: 29px;
+  padding: 10px 0px 10px;
+}

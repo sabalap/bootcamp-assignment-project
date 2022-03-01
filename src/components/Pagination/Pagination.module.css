@@ -1,0 +1,20 @@
+.pagination {
+  width: 231px;
+  height: 19px;
+  display: flex;
+  justify-content: space-between;
+  margin: 170px auto 0px;
+}
+.point {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 3px solid #fe3b1f;
+  display: inline-block;
+  background-color: #fe3b1f;
+  opacity: 0.1;
+}
+.point.active {
+  opacity: 1;
+  border: none;
+}

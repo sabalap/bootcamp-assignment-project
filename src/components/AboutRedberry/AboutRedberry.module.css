@@ -1,0 +1,21 @@
+.about-redberry {
+  background-color: #0c0d0e;
+  height: 1080px;
+  padding: 130px 95px 420px 180px;
+  flex: 51.1%;
+}
+.title {
+  font-family: "Rowdies-Regular";
+  font-size: 64px;
+  line-height: 79.49px;
+  color: #fe3b1f;
+  margin-bottom: 140px;
+}
+.description {
+  font-family: "Montserrat-Regular";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 48px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}

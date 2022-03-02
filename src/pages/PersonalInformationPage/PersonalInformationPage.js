@@ -1,11 +1,10 @@
-import classes from "./PersonalInformationPage.module.css";
 import AboutRedberry from "../../components/AboutRedberry/AboutRedberry";
 import PersonalInformation from "../../components/Form/PersonalInformation/PersonalInformation";
-const PersonalInformationPage = () => {
+const PersonalInformationPage = (props) => {
   return (
-    <section className={classes["personal-information-page"]}>
+    <section className="survey">
       <PersonalInformation />
-      <AboutRedberry />
+      {props.page === 1 && <AboutRedberry page={props.page} />}
     </section>
   );
 };

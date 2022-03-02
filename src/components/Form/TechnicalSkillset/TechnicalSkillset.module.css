@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+.technical-skillset {
+  padding: 130px 75px 170px 120px;
+  flex: 45.9%;
+  text-align: center;
+  height: 1080px;
+}
+.option {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #454545;
+  line-height: 17px;
+  font-weight: 400;
+}
+.select {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #454545;
+  line-height: 17px;
+  font-weight: 400;
+  background-image: url("../../../assets/Vector.svg");
+  background-repeat: no-repeat;
+  background-position: center right 25px;
+}
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.duration::placeholder {
+  color: #727272;
+}
+.add-btn {
+  font-family: "Montserrat-Regular";
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+  width: 201px;
+  height: 32px;
+  background-color: #fe3b1f;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-left: auto;
+}

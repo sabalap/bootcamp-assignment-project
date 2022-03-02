@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+.covid-information {
+  padding: 120px 290px 65px 165px;
+  text-align: center;
+  height: 1380px;
+  flex: 46.3%;
+}
+.form-control {
+  width: 455px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 45px;
+}
+.form-control:last-of-type {
+  margin-bottom: -50px;
+}
+.date-input::-webkit-inner-spin-button,
+.date-input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+.date-input {
+  background-image: url("../../../assets/calendar.svg");
+  background-repeat: no-repeat;
+  background-position: center right 20px;
+  padding-right: 20px;
+  font-family: "Montserrat";
+}
+
+.question {
+  font-family: "Montserrat-Regular";
+  color: #000000;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 30px;
+}
+.options {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.options input {
+  margin-right: 5px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #0c0d0e 100% #151718 100%;
+}
+.options label {
+  align-items: baseline;
+  font-family: "Montserrat-Regular";
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+.covid-stuff {
+  margin-bottom: 130px;
+}

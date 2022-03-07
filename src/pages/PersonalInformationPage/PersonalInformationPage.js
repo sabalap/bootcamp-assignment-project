@@ -3,7 +3,10 @@ import PersonalInformation from "../../components/Form/PersonalInformation/Perso
 const PersonalInformationPage = (props) => {
   return (
     <section className="survey">
-      <PersonalInformation />
+      <PersonalInformation
+        onPreviousPage={props.onPreviousPage}
+        onNextPage={props.onNextPage}
+      />
       {props.page === 1 && <AboutRedberry page={props.page} />}
     </section>
   );

@@ -25,11 +25,14 @@
   color: #fe3b1f;
   margin-bottom: 131px;
 }
+.input-container {
+  margin-bottom: 37px;
+}
+
 .field {
   width: 455px;
   height: 54px;
   border: 1px solid #525557;
-  margin-bottom: 37px;
   background: #ffffff;
   outline: none;
   padding: 17px 0px 13px 57px;
@@ -51,4 +54,15 @@
 }
 .survey {
   display: flex;
+}
+.error {
+  font-family: "Montserrat";
+  font-size: 11px;
+  color: #fe3b1f;
+  text-align: left;
+  margin-left: 55px;
+  margin-top: 3px;
+}
+.invalid {
+  border: 1px solid#FE3B1F;
 }

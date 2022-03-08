@@ -1,20 +1,18 @@
 import useInput from "../../../hooks/use-input";
 import Pagination from "../../Pagination/Pagination";
 import classes from "./PersonalInformation.module.css";
-
 const isFname = (value) => value.trim().length >= 2;
 const isLname = (value) => value.trim().length >= 2;
 const isEmail = (value) =>
   value.includes("@") && value.length >= 2 && value.includes(".");
 const isPhone = (value) => value.startsWith("+995") && value.length === 13;
-const PersonalInformation = (props) => {
+const PersonalInformation = () => {
   const {
     value: firstNameValue,
     isValid: firstNameIsValid,
     hasError: firstNameHasError,
     valueChangeHandler: firstNameChangeHandler,
     inputBlurHandler: firstNameBlurHandler,
-    reset: resetFirstName,
   } = useInput(isFname);
   const {
     value: lastNameValue,
@@ -22,7 +20,6 @@ const PersonalInformation = (props) => {
     hasError: lastNameHasError,
     valueChangeHandler: lastNameChangeHandler,
     inputBlurHandler: lastNameBlurHandler,
-    reset: resetLastName,
   } = useInput(isLname);
   const {
     value: emailValue,
@@ -30,7 +27,6 @@ const PersonalInformation = (props) => {
     hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
-    reset: resetEmail,
   } = useInput(isEmail);
   const {
     value: phoneValue,
@@ -38,7 +34,6 @@ const PersonalInformation = (props) => {
     hasError: phoneHasError,
     valueChangeHandler: phoneChangeHandler,
     inputBlurHandler: phoneBlurHandler,
-    reset: resetphone,
   } = useInput(isPhone);
   let formIsValid;
   if (firstNameIsValid && lastNameIsValid && emailIsValid) {
@@ -133,13 +128,7 @@ const PersonalInformation = (props) => {
           {phoneHasError && <p className="error">number is invalid</p>}
         </div>
       </form>
-      <Pagination
-        onPreviousPage={props.onPreviousPage}
-        onNextPage={props.onNextPage}
-        formValid={formIsValid}
-        next={"/skillsPage"}
-        prev={"/"}
-      />
+      <Pagination formValid={formIsValid} />
     </section>
   );
 };

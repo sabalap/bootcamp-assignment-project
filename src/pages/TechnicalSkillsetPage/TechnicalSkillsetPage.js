@@ -1,11 +1,11 @@
+import SkillsRedbery from "../../components/AboutRedberry/SkillsRedberry/SkillsRedberry";
 import TechnicalSkillset from "../../components/Form/TechnicalSkillset/TechnicalSkillset";
-import AboutRedberry from "../../components/AboutRedberry/AboutRedberry";
 
-const TechnicalSkillsetPage = (props) => {
+const TechnicalSkillsetPage = () => {
   return (
     <section className="survey">
       <TechnicalSkillset />
-      {props.page === 2 && <AboutRedberry page={props.page} />}
+      <SkillsRedbery />
     </section>
   );
 };

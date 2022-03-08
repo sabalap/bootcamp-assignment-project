@@ -1,11 +1,11 @@
-import AboutRedberry from "../../components/AboutRedberry/AboutRedberry";
+import RedberrianInsights from "../../components/AboutRedberry/RedberrianInsights/RedberrianInsights";
 import AboutYou from "../../components/Form/AboutYou/AboutYou";
 
 const AboutYouPage = (props) => {
   return (
     <section className="survey">
       <AboutYou />
-      {props.page === 4 && <AboutRedberry page={props.page} />}
+      <RedberrianInsights />
     </section>
   );
 };

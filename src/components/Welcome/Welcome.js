@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import classes from "./Welcome.module.css";
 import rocketmanImg from "../../assets/rocketman.png";
-const Welcome = (props) => {
+import { useContext } from "react";
+import Context from "../../context/context";
+const Welcome = () => {
+  const ctx = useContext(Context);
+  const { changePage, submitedHandler } = ctx;
   return (
     <section className={classes["start-section"]}>
       <h1 className={classes["welcome-text"]}>Welcome Rocketeer!</h1>
-      <Link to="/personalInfo">
-        <button className={classes["start-btn"]} onClick={props.onNextPage}>
-          Start Questionnaire
-        </button>
-      </Link>
+      <button className={classes["start-btn"]} onClick={() => changePage(1)}>
+        Start Questionnaire
+      </button>
       <h4 className={classes["submitted-applications"]}>
         Submitted Applications
       </h4>

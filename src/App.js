@@ -1,45 +1,32 @@
-import { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Fragment, useContext } from "react";
 import "./App.css";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import Welcome from "./components/Welcome/Welcome";
 import PersonalInformationPage from "./pages/PersonalInformationPage/PersonalInformationPage";
 import TechnicalSkillsetPage from "./pages/TechnicalSkillsetPage/TechnicalSkillsetPage";
 import CovidInformationPage from "./pages/CovidInformationPage.js/CovidInformationPage";
 import AboutYouPage from "./pages/AboutYouPage/AboutYouPage";
 import SubmitForm from "./components/SubmitForm/SubmitForm";
+import Context from "./context/context";
 const App = () => {
-  const [page, setPage] = useState(0);
-  const nextPageHandler = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
-  const previousPageHandler = () => {
-    setPage((prevPage) => prevPage - 1);
-  };
+  const {
+    isSubmited,
+    token,
+    page,
+    changePage,
+    handleSubmit,
+    createUser,
+    submitedHandler,
+    removeUserObj,
+  } = useContext(Context);
   return (
-    <Switch>
-      <Route path="/" exact>
-        <WelcomePage onNextPage={nextPageHandler} />
-      </Route>
-      <Route path="/personalInfo">
-        <PersonalInformationPage
-          onPreviousPage={previousPageHandler}
-          onNextPage={nextPageHandler}
-          page={page}
-        />
-      </Route>
-      <Route path="/skillsPage">
-        <TechnicalSkillsetPage page={page} />
-      </Route>
-      <Route path="/covidInfo">
-        <CovidInformationPage page={page} />
-      </Route>
-      <Route path="/aboutYou">
-        <AboutYouPage page={page} />
-      </Route>
-      <Route path="/submit">
-        <SubmitForm page={page} />
-      </Route>
-    </Switch>
+    <Fragment>
+      {page === 0 && !isSubmited && <Welcome />}
+      {/* <PersonalInformationPage />
+      <TechnicalSkillsetPage />
+      <CovidInformationPage />
+      <AboutYouPage />
+      <SubmitForm /> */}
+    </Fragment>
   );
 };
 

@@ -1,9 +1,5 @@
 import SubmitForm from "../../components/SubmitForm/SubmitForm";
 const SubmitPage = (props) => {
-  let submitContent;
-  if (props.page === 5) {
-    submitContent = <SubmitForm />;
-  }
-  return { submitContent };
+  return <SubmitForm />;
 };
 export default SubmitPage;

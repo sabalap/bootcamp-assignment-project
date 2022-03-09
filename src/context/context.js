@@ -51,7 +51,7 @@ export const ContextProvider = (props) => {
     const workPreference = localStorage.getItem("work_preference");
     const covid = JSON.parse(localStorage.getItem("had_covid"));
     const covidDate = localStorage.getItem("had_covid_at");
-    const vaccinated = JSON.parse(localStorage.getItem("vaccinated"));
+    const vac = JSON.parse(localStorage.getItem("vaccinated"));
     const vaccinatedDate = localStorage.getItem("vaccinated_at");
     const devTalk = JSON.parse(localStorage.getItem("devtalk"));
     const devTalkAbout = localStorage.getItem("devtalk_topic");
@@ -65,17 +65,14 @@ export const ContextProvider = (props) => {
       skills: skills,
       work_preference: workPreference,
       had_covid: covid,
-      had_covid_at: covidDate,
-      vaccinated,
-      vaccinated_at: vaccinatedDate,
+      vaccinated: vac,
       will_organize_devtalk: devTalk,
-      devtalk_topic: devTalkAbout,
       something_special: smthSpecial,
     };
     if (covid === true) {
       userObj.had_covid_at = covidDate;
     }
-    if (vaccinated === true) {
+    if (vac === true) {
       userObj.vaccinated_at = vaccinatedDate;
     }
     if (devTalk === true) {

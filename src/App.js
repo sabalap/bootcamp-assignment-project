@@ -1,8 +1,6 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import "./App.css";
 import Welcome from "./components/Welcome/Welcome";
-import { BrowserRouter as Router } from "react-router-dom";
-import ScrollToTop from "./utils/ScrollToTop";
 import PersonalInformationPage from "./pages/PersonalInformationPage/PersonalInformationPage";
 import TechnicalSkillsetPage from "./pages/TechnicalSkillsetPage/TechnicalSkillsetPage";
 import CovidInformationPage from "./pages/CovidInformationPage.js/CovidInformationPage";
@@ -14,8 +12,7 @@ import SubmittedApplications from "./components/SubmittedApplications/SubmittedA
 const App = () => {
   const { isSubmitted, page } = useContext(Context);
   return (
-    <Router>
-      <ScrollToTop />
+    <Fragment>
       {isSubmitted && <SubmittedApplications />}
       {page === 0 && !isSubmitted && <Welcome />}
       {page === 1 && <PersonalInformationPage />}
@@ -24,7 +21,7 @@ const App = () => {
       {page === 4 && <AboutYouPage />}
       {page === 5 && <SubmitForm />}
       {page === 6 && <Thanks />}
-    </Router>
+    </Fragment>
   );
 };
 

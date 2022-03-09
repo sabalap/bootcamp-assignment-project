@@ -3,24 +3,29 @@ import axios from "axios";
 const Context = React.createContext({
   page: 0,
   isSubmitted: false,
-  token: "370fc7f9-45f4-4e7e-a55c-da8ea0b305c3",
+  token: "",
   user: null,
   changePage: (pageN) => {},
-  submitedHandler: () => {},
+  submittedHandler: () => {},
   createUser: () => {},
   removeUserObj: () => {},
   handleSubmit: () => {},
+  backHandler: () => {},
 });
+
 export const ContextProvider = (props) => {
   const [page, setPage] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(null);
-  const [token] = useState("370fc7f9-45f4-4e7e-a55c-da8ea0b305c3");
+  const [token, setToken] = useState("466cc652-44c8-4131-a6de-e107874f37b1");
   const [user, setUser] = useState(null);
   const changePage = (pageN) => {
     setPage(pageN);
   };
   const submittedHandler = () => {
     setIsSubmitted(true);
+  };
+  const backHandler = () => {
+    setIsSubmitted(false);
   };
   const clearStorage = () => {
     localStorage.removeItem("firstName");
@@ -60,18 +65,21 @@ export const ContextProvider = (props) => {
       skills: skills,
       work_preference: workPreference,
       had_covid: covid,
+      had_covid_at: covidDate,
       vaccinated,
+      vaccinated_at: vaccinatedDate,
       will_organize_devtalk: devTalk,
+      devtalk_topic: devTalkAbout,
       something_special: smthSpecial,
     };
     if (covid === true) {
-      userObj.had_covid__at = covidDate;
+      userObj.had_covid_at = covidDate;
     }
     if (vaccinated === true) {
       userObj.vaccinated_at = vaccinatedDate;
     }
     if (devTalk === true) {
-      userObj.devTalk_topic = devTalkAbout;
+      userObj.devtalk_topic = devTalkAbout;
     }
     setUser(userObj);
   };
@@ -106,6 +114,8 @@ export const ContextProvider = (props) => {
         createUser: createUser,
         removeUserObj: removeUserObj,
         handleSubmit: handleSubmit,
+        token: token,
+        backHandler: backHandler,
       }}
     >
       {props.children}

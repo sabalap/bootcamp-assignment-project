@@ -107,7 +107,7 @@
   display: none;
 }
 .thanks-bg {
-  background-color: #454545;
+  background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -119,4 +119,8 @@
   line-height: 119px;
   color: #fe3b1f;
   text-align: center;
+}
+.submited-applications-section {
+  background-color: #454545;
+  min-height: 100vh;
 }

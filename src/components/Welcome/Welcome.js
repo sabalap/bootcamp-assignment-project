@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import classes from "./Welcome.module.css";
 import rocketmanImg from "../../assets/rocketman.png";
 import { useContext } from "react";

@@ -10,7 +10,7 @@ import AboutYouPage from "./pages/AboutYouPage/AboutYouPage";
 import SubmitForm from "./components/SubmitForm/SubmitForm";
 import Context from "./context/context";
 import Thanks from "./components/Thanks/Thanks";
-import SubmittedApplications from "./components/SubmittedApplications/SubmitedApplications";
+import SubmittedApplications from "./components/SubmittedApplications/SubmittedApplications";
 const App = () => {
   const { isSubmitted, page } = useContext(Context);
   return (

@@ -1,10 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Context from "../../context/context";
-import SubmittedApplication from "./SubmitedApplication/SubmittedApplication";
+import SubmittedApplication from "../SubmittedApplications/SubmittedApplication/SubmittedApplication";
+import classes from "./SubmittedApplication/SubmittedApplication.module.css";
 const SubmittedApplications = () => {
   const ctx = useContext(Context);
-  const { token } = ctx;
+  const { token, backHandler } = ctx;
   let [submittedApplications, setSubmittedApplications] = useState([]);
   let [skills, setSkills] = useState([]);
   useEffect(() => {
@@ -22,8 +23,8 @@ const SubmittedApplications = () => {
       .catch((error) => console.log(error));
   }, []);
   return (
-    <section className="submited-applications-section">
-      <h1>Submitted Applications</h1>
+    <section className={classes["submitted-container"]}>
+      <h1 className={classes["submitted-title"]}>Submitted Applications</h1>
       <div>
         {submittedApplications.length > 0 &&
           submittedApplications.map((i, index) => (
@@ -35,6 +36,9 @@ const SubmittedApplications = () => {
             />
           ))}
       </div>
+      <button className={classes.back} onClick={backHandler}>
+        Back
+      </button>
     </section>
   );
 };

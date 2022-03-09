@@ -3,9 +3,9 @@ import { useContext } from "react";
 import Context from "../../context/context";
 const SubmitForm = () => {
   const ctx = useContext(Context);
-  const { changePage, handleSubmit, removeUser } = ctx;
+  const { changePage, handleSubmit, removeUserObj } = ctx;
   const prevPageHandler = () => {
-    removeUser();
+    removeUserObj();
     changePage(4);
   };
   return (

@@ -1,81 +1,137 @@
-import useInput from "../../../hooks/use-input";
-import Pagination from "../../Pagination/Pagination";
+import { useContext, useEffect, useState } from "react";
+import Context from "../../../context/context";
+import previousIcon from "../../../assets/Previous.svg";
+import nextIcon from "../../../assets/Next.svg";
 import classes from "./PersonalInformation.module.css";
-const isFname = (value) => value.trim().length >= 2;
-const isLname = (value) => value.trim().length >= 2;
-const isEmail = (value) =>
-  value.includes("@") && value.length >= 2 && value.includes(".");
-const isPhone = (value) => value.startsWith("+995") && value.length === 13;
 const PersonalInformation = () => {
-  const {
-    value: firstNameValue,
-    isValid: firstNameIsValid,
-    hasError: firstNameHasError,
-    valueChangeHandler: firstNameChangeHandler,
-    inputBlurHandler: firstNameBlurHandler,
-  } = useInput(isFname);
-  const {
-    value: lastNameValue,
-    isValid: lastNameIsValid,
-    hasError: lastNameHasError,
-    valueChangeHandler: lastNameChangeHandler,
-    inputBlurHandler: lastNameBlurHandler,
-  } = useInput(isLname);
-  const {
-    value: emailValue,
-    isValid: emailIsValid,
-    hasError: emailHasError,
-    valueChangeHandler: emailChangeHandler,
-    inputBlurHandler: emailBlurHandler,
-  } = useInput(isEmail);
-  const {
-    value: phoneValue,
-    isValid: phoneIsValid,
-    hasError: phoneHasError,
-    valueChangeHandler: phoneChangeHandler,
-    inputBlurHandler: phoneBlurHandler,
-  } = useInput(isPhone);
-  let formIsValid;
-  if (firstNameIsValid && lastNameIsValid && emailIsValid) {
-    formIsValid = true;
-  }
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [firstNameHasError, setFirstNameHasError] = useState("");
+  const [lastNameHasError, setLastNameHasError] = useState("");
+  const [emailHasError, setEmailHasError] = useState("");
+  const [phoneHasError, setPhoneHasError] = useState("");
+
+  const ctx = useContext(Context);
+  const { changePage } = ctx;
+  const activeClass = `${classes.point} ${classes.active}`;
+  useEffect(() => {
+    const saveFirstName = localStorage.getItem("firstName");
+    const saveLastName = localStorage.getItem("lastName");
+    const saveEmail = localStorage.getItem("email");
+    const savePhone = localStorage.getItem("phone");
+    if (saveFirstName) {
+      setFirstName(saveFirstName);
+    }
+    if (saveLastName) {
+      setLastName(saveLastName);
+    }
+    if (saveEmail) {
+      setEmail(saveEmail);
+    }
+    if (savePhone) {
+      setPhone(savePhone);
+    }
+  }, []);
+
+  const validateFirstName = () => {
+    setFirstNameHasError("");
+    if (firstName === "") {
+      setFirstNameHasError("* first name is required");
+      localStorage.removeItem("firstName");
+      return false;
+    } else if (firstName.length < 2) {
+      setFirstNameHasError("* first name should include 2 or more characters");
+      localStorage.removeItem("firstName");
+      return false;
+    } else {
+      localStorage.removeItem("firstName");
+      localStorage.setItem("firstName", firstName);
+      return true;
+    }
+  };
+
+  const validateLastName = () => {
+    setLastNameHasError("");
+    if (lastName === "") {
+      setLastNameHasError("* last name is required");
+      localStorage.removeItem("lastName");
+      return false;
+    } else if (lastName.length < 2) {
+      setLastNameHasError("* last name should include 2 or more characters");
+      localStorage.removeItem("lastName");
+      return false;
+    } else {
+      localStorage.removeItem("lastName");
+      localStorage.setItem("lastName", lastName);
+      return true;
+    }
+  };
+
+  const validateEmail = () => {
+    setEmailHasError("");
+    const emailVal = /\S+@\S+\.\S+/;
+    if (email === "") {
+      setEmailHasError("* email is required");
+      localStorage.removeItem("email");
+      return false;
+    } else if (!email.match(emailVal)) {
+      setEmailHasError("* email is Invalid");
+      localStorage.removeItem("email");
+      return false;
+    } else {
+      localStorage.removeItem("email");
+      localStorage.setItem("email", email);
+      return true;
+    }
+  };
+
+  const validatePhone = () => {
+    const isValidPhone1 = /^\+995\s*5[0-9]{8}$/;
+    const isValidPhone2 = /^\+995\s?5[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}$/;
+    const isValidPhone3 = /^\+995\s*5[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}$/;
+    const isValidPhone4 = /^\+995\s*5[0-9]{2}\s?[0-9]{3}\s?[0-9]{3}$/;
+    const isValidPhone5 = /^\+995\s*5[0-9]{2}-[0-9]{3}-[0-9]{3}$/;
+    setPhoneHasError("");
+    if (phone === "") {
+      localStorage.removeItem("phone");
+      return true;
+    } else if (
+      phone.match(isValidPhone1) ||
+      phone.match(isValidPhone2) ||
+      phone.match(isValidPhone3) ||
+      phone.match(isValidPhone4) ||
+      phone.match(isValidPhone5)
+    ) {
+      localStorage.removeItem("phone");
+      localStorage.setItem("phone", phone);
+      return true;
+    } else {
+      setPhoneHasError("* phone number is invalid");
+      localStorage.removeItem("phone");
+      return false;
+    }
+  };
   const firstNameClass = firstNameHasError ? "invalid" : "";
   const lastNameClass = lastNameHasError ? "invalid" : "";
   const emailClass = emailHasError ? "invalid" : "";
   const phoneClass = phoneHasError ? "invalid" : "";
-  let firstNameWarning;
-  if (firstNameHasError && firstNameValue.trim().length < 1) {
-    firstNameWarning = <p className="error">* first name is required</p>;
-  }
-  if (
-    firstNameHasError &&
-    firstNameValue.trim().length > 0 &&
-    firstNameValue.trim().length < 2
-  ) {
-    firstNameWarning = (
-      <p className="error">* first name should include 2 or more characters</p>
-    );
-  }
-  let lastNameWarning;
-  if (lastNameHasError && lastNameValue.trim().length < 1) {
-    lastNameWarning = <p className="error">* last name is required</p>;
-  }
-  if (
-    lastNameHasError &&
-    lastNameValue.trim().length > 0 &&
-    lastNameValue.trim().length < 2
-  ) {
-    lastNameWarning = (
-      <p className="error">* last name should include 2 or more characters</p>
-    );
-  }
-  let emailWarning;
-  if (emailHasError && emailValue.trim().length < 1) {
-    emailWarning = <p className="error">* email is required</p>;
-  }
-  if (emailHasError && emailValue.trim().length >= 1) {
-    emailWarning = <p className="error">* email is Invalid</p>;
-  }
+  const nextPageHandler = () => {
+    validateFirstName();
+    validateLastName();
+    validateEmail();
+    validatePhone();
+    if (
+      validateFirstName() &&
+      validateLastName() &&
+      validateEmail() &&
+      validatePhone()
+    ) {
+      changePage(2);
+    }
+  };
 
   return (
     <section className={classes["personal-information"]}>
@@ -88,47 +144,59 @@ const PersonalInformation = () => {
             className={`field ${firstNameClass}`}
             type="text"
             placeholder="First Name"
-            onChange={firstNameChangeHandler}
-            onBlur={firstNameBlurHandler}
-            value={firstNameValue}
+            onChange={({ target }) => setFirstName(target.value)}
+            onBlur={validateFirstName}
+            value={firstName}
           />
-          {firstNameWarning}
+          {firstNameHasError && <p className="error">{firstNameHasError}</p>}
         </div>
         <div className="input-container">
           <input
             className={`field ${lastNameClass}`}
             type="text"
             placeholder="Last Name"
-            onChange={lastNameChangeHandler}
-            onBlur={lastNameBlurHandler}
-            value={lastNameValue}
+            onChange={({ target }) => setLastName(target.value)}
+            onBlur={validateLastName}
+            value={lastName}
           />
-          {lastNameWarning}
+          {lastNameHasError && <p className="error">{lastNameHasError}</p>}
         </div>
         <div className="input-container">
           <input
             className={`field ${emailClass}`}
             type="email"
             placeholder="E Mail"
-            onChange={emailChangeHandler}
-            onBlur={emailBlurHandler}
-            value={emailValue}
+            onChange={({ target }) => setEmail(target.value)}
+            onBlur={validateEmail}
+            value={email}
           />
-          {emailWarning}
+          {emailHasError && <p className="error">{emailHasError}</p>}
         </div>
         <div className="input-container">
           <input
             className={`field ${phoneClass}`}
-            onChange={phoneChangeHandler}
-            value={phoneValue}
-            onBlur={phoneBlurHandler}
+            onChange={({ target }) => setPhone(target.value)}
+            value={phone}
+            onBlur={validatePhone}
             type="text"
             placeholder="+995 5__ __ __ __"
           />
-          {phoneHasError && <p className="error">number is invalid</p>}
+          {phoneHasError && <p className="error">{phoneHasError}</p>}
         </div>
       </form>
-      <Pagination formValid={formIsValid} />
+      <div className={classes.pagination}>
+        <img
+          onClick={() => changePage(0)}
+          src={previousIcon}
+          alt="Previous Arrow"
+        />
+        <span className={activeClass}></span>
+        <span className={classes.point}></span>
+        <span className={classes.point}></span>
+        <span className={classes.point}></span>
+        <span className={classes.point}></span>
+        <img onClick={nextPageHandler} src={nextIcon} alt="Next Arrow" />
+      </div>
     </section>
   );
 };

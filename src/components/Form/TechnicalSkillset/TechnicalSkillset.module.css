@@ -26,6 +26,9 @@
   -moz-appearance: none;
   -webkit-appearance: none;
 }
+.duration {
+  margin-top: 35px;
+}
 .duration::placeholder {
   color: #727272;
 }
@@ -41,4 +44,25 @@
   cursor: pointer;
   text-align: center;
   margin-left: auto;
+  margin-top: 35px;
+}
+.skills-container {
+  margin: 55px auto 0px;
+  width: 447px;
+}
+.skill {
+  width: 447px;
+  height: 48px;
+  padding-left: 18px;
+  padding-right: 18px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #525557;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.skill > div {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
 }

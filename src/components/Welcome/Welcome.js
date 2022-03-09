@@ -12,7 +12,10 @@ const Welcome = () => {
       <button className={classes["start-btn"]} onClick={() => changePage(1)}>
         Start Questionnaire
       </button>
-      <h4 className={classes["submitted-applications"]}>
+      <h4
+        onClick={submitedHandler}
+        className={classes["submitted-applications"]}
+      >
         Submitted Applications
       </h4>
       <img src={rocketmanImg} alt="RocketMan" />

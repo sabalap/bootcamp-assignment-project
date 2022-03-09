@@ -138,7 +138,7 @@ const PersonalInformation = () => {
       <h1 className="question-title">
         Hey, Rocketeer, what are your coordinates?
       </h1>
-      <form className="form">
+      <div className="form">
         <div className="input-container">
           <input
             className={`field ${firstNameClass}`}
@@ -183,18 +183,18 @@ const PersonalInformation = () => {
           />
           {phoneHasError && <p className="error">{phoneHasError}</p>}
         </div>
-      </form>
-      <div className={classes.pagination}>
+      </div>
+      <div className="pagination">
         <img
           onClick={() => changePage(0)}
           src={previousIcon}
           alt="Previous Arrow"
         />
-        <span className={activeClass}></span>
-        <span className={classes.point}></span>
-        <span className={classes.point}></span>
-        <span className={classes.point}></span>
-        <span className={classes.point}></span>
+        <span className="activeClass"></span>
+        <span className="point"></span>
+        <span className="point"></span>
+        <span className="point"></span>
+        <span className="point"></span>
         <img onClick={nextPageHandler} src={nextIcon} alt="Next Arrow" />
       </div>
     </section>

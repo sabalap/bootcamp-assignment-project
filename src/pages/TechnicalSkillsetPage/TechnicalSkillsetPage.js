@@ -2,6 +2,7 @@ import SkillsRedbery from "../../components/AboutRedberry/SkillsRedberry/SkillsR
 import TechnicalSkillset from "../../components/Form/TechnicalSkillset/TechnicalSkillset";
 
 const TechnicalSkillsetPage = () => {
+  // Techincal Skill Page
   return (
     <section className="survey">
       <TechnicalSkillset />

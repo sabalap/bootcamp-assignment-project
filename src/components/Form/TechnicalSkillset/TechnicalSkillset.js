@@ -14,7 +14,6 @@ const TechnicalSkillset = () => {
   let [experience, setExperience] = useState("");
   let [skillError, setSkillError] = useState("");
   let [experienceErr, setExperinceErr] = useState("");
-  const activeClass = `${classes.point} ${classes.active}`;
   useEffect(() => {
     setSkillsArr((skillsArr = []));
     const saveSkillsArr = localStorage.getItem("skills");

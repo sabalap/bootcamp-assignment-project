@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 const Context = React.createContext({
   page: 0,
-  isSubmited: false,
+  isSubmitted: false,
   token: "370fc7f9-45f4-4e7e-a55c-da8ea0b305c3",
   user: null,
   changePage: (pageN) => {},
@@ -13,14 +13,14 @@ const Context = React.createContext({
 });
 export const ContextProvider = (props) => {
   const [page, setPage] = useState(0);
-  const [isSubmited, setIsSubmited] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(null);
   const [token] = useState("370fc7f9-45f4-4e7e-a55c-da8ea0b305c3");
   const [user, setUser] = useState(null);
   const changePage = (pageN) => {
     setPage(pageN);
   };
-  const submitedHandler = () => {
-    setIsSubmited(true);
+  const submittedHandler = () => {
+    setIsSubmitted(true);
   };
   const clearStorage = () => {
     localStorage.removeItem("firstName");
@@ -99,10 +99,10 @@ export const ContextProvider = (props) => {
     <Context.Provider
       value={{
         page: page,
-        isSubmited: isSubmited,
+        isSubmitted: isSubmitted,
         user: user,
         changePage: changePage,
-        submitedHandler: submitedHandler,
+        submittedHandler: submittedHandler,
         createUser: createUser,
         removeUserObj: removeUserObj,
         handleSubmit: handleSubmit,

@@ -5,7 +5,7 @@ import { useContext } from "react";
 import Context from "../../context/context";
 const Welcome = () => {
   const ctx = useContext(Context);
-  const { changePage, submitedHandler } = ctx;
+  const { changePage, submittedHandler } = ctx;
   return (
     <section className={classes["start-section"]}>
       <h1 className={classes["welcome-text"]}>Welcome Rocketeer!</h1>
@@ -13,7 +13,7 @@ const Welcome = () => {
         Start Questionnaire
       </button>
       <h4
-        onClick={submitedHandler}
+        onClick={submittedHandler}
         className={classes["submitted-applications"]}
       >
         Submitted Applications

@@ -16,7 +16,6 @@ const PersonalInformation = () => {
 
   const ctx = useContext(Context);
   const { changePage } = ctx;
-  const activeClass = `${classes.point} ${classes.active}`;
   useEffect(() => {
     const saveFirstName = localStorage.getItem("firstName");
     const saveLastName = localStorage.getItem("lastName");

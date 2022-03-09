@@ -180,7 +180,6 @@ const CovidInformation = () => {
                 id="covid-yes"
                 value="yes"
                 checked={covid === true ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="covid-yes">Yes</label>
             </div>
@@ -191,7 +190,6 @@ const CovidInformation = () => {
                 id="covid-no"
                 value="no"
                 checked={covid === false ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="covid-no">No</label>
             </div>
@@ -219,7 +217,6 @@ const CovidInformation = () => {
                 id="vaccinated-yes"
                 value="yes"
                 checked={vaccinated === true ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="vaccinated-yes">Yes</label>
             </div>
@@ -230,7 +227,6 @@ const CovidInformation = () => {
                 id="vaccinated-no"
                 value="no"
                 checked={vaccinated === false ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="vaccinated-no">No</label>
             </div>

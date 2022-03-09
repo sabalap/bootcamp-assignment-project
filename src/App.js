@@ -10,14 +10,14 @@ import AboutYouPage from "./pages/AboutYouPage/AboutYouPage";
 import SubmitForm from "./components/SubmitForm/SubmitForm";
 import Context from "./context/context";
 import Thanks from "./components/Thanks/Thanks";
-import SubmitedApplications from "./components/SubmitedApplications/SubmitedApplications";
+import SubmittedApplications from "./components/SubmittedApplications/SubmitedApplications";
 const App = () => {
-  const { isSubmited, page } = useContext(Context);
+  const { isSubmitted, page } = useContext(Context);
   return (
     <Router>
       <ScrollToTop />
-      {isSubmited && <SubmitedApplications />}
-      {page === 0 && !isSubmited && <Welcome />}
+      {isSubmitted && <SubmittedApplications />}
+      {page === 0 && !isSubmitted && <Welcome />}
       {page === 1 && <PersonalInformationPage />}
       {page === 2 && <TechnicalSkillsetPage />}
       {page === 3 && <CovidInformationPage />}

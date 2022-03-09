@@ -98,7 +98,6 @@ const AboutYou = () => {
                 type="radio"
                 value="yes"
                 checked={devTalk === true ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="devtalk_yes">Yes</label>
             </div>
@@ -109,7 +108,6 @@ const AboutYou = () => {
                 type="radio"
                 value="no"
                 checked={devTalk === false ? true : false}
-                onChange={({ target }) => console.log(target.value)}
               />
               <label htmlFor="devtalk_no">No</label>
             </div>

@@ -89,7 +89,7 @@ const AboutYou = () => {
           <p className={classes.question}>
             Would you attend Devtalks and maybe also organize your own?
           </p>
-          {devTalkError && <p className="error">{devTalkError}</p>}
+          {devTalkError && <p className="error error-place2">{devTalkError}</p>}
           <form onChange={({ target }) => devTalkHandler(target.value)}>
             <div className={classes.options}>
               <input
@@ -121,7 +121,9 @@ const AboutYou = () => {
           <p className={classes.question}>
             What would you speak about at Devtalk?
           </p>
-          {devTalkTopicError && <p className="error">{devTalkTopicError}</p>}
+          {devTalkTopicError && (
+            <p className="error error-place2">{devTalkTopicError}</p>
+          )}
           <textarea
             placeholder="I would..."
             onChange={({ target }) => setDevTalkTopic(target.value)}
@@ -130,7 +132,9 @@ const AboutYou = () => {
         </div>
         <div className={classes["form-control"]}>
           <p className={classes.question}>Tell us something special</p>
-          {smthSpecialError && <p className="error">{smthSpecialError}</p>}
+          {smthSpecialError && (
+            <p className="error error-place2">{smthSpecialError}</p>
+          )}
           <textarea
             placeholder="I..."
             onChange={({ target }) => setSmthSpecial(target.value)}

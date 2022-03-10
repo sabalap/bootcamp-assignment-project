@@ -102,7 +102,7 @@ const TechnicalSkillset = () => {
               );
             })}
         </select>
-        {skillError && <p className="error">{skillError}</p>}
+        {skillError && <p className="error error-place2">{skillError}</p>}
         <input
           type="text"
           className={`field ${classes.duration}`}
@@ -110,7 +110,7 @@ const TechnicalSkillset = () => {
           onChange={({ target }) => setExperience(target.value)}
           value={experience}
         />
-        {experienceErr && <p className="error">{experienceErr}</p>}
+        {experienceErr && <p className="error error-place2">{experienceErr}</p>}
         <button
           className={classes["add-btn"]}
           type="submit"
@@ -125,8 +125,10 @@ const TechnicalSkillset = () => {
             return (
               <div key={i.id} className={classes.skill}>
                 <div>
-                  <p>{i.title}</p>
-                  <p>Years of Experince: {i.experience}</p>
+                  <p className={classes["skill-desc"]}>{i.title}</p>
+                  <p className={classes["skill-desc"]}>
+                    Years of Experince: {i.experience}
+                  </p>
                 </div>
                 <img
                   src={removeSkillIcon}

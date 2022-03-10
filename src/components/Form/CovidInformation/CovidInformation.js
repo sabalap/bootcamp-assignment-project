@@ -131,7 +131,9 @@ const CovidInformation = () => {
         <div className={classes["form-control"]}>
           <div>
             <p className={classes.question}>how would you prefer to work?</p>
-            {workPreference && <p className="error">{workPreferenceError}</p>}
+            {workPreferenceError && (
+              <p className="error error-place">{workPreferenceError}</p>
+            )}
           </div>
           <form onChange={({ target }) => setWorkPreference(target.value)}>
             <div className={classes.options}>
@@ -171,7 +173,7 @@ const CovidInformation = () => {
         </div>
         <div className={classes["form-control"]}>
           <p className={classes.question}>Did you contact covid 19? :(</p>
-          {covidError && <p className="error">{covidError}</p>}
+          {covidError && <p className="error error-place2">{covidError}</p>}
           <form onChange={({ target }) => covidHandler(target.value)}>
             <div className={classes.options}>
               <input
@@ -199,7 +201,9 @@ const CovidInformation = () => {
         </div>
         <div className={`${covid ? "form-control" : "hidden"}`}>
           <p className={classes.question}>When?</p>
-          {covidDateError && <p className="error">{covidDateError}</p>}
+          {covidDateError && (
+            <p className="error error-place2">{covidDateError}</p>
+          )}
           <input
             className={`field ${classes["date-input"]}`}
             placeholder={covidDate !== "" ? covidDate : "Date"}
@@ -210,7 +214,9 @@ const CovidInformation = () => {
         </div>
         <div className={classes["form-control"]}>
           <p className={classes.question}>Have you been vaccinated?</p>
-          {vaccinatedError && <p className="error">{vaccinatedError}</p>}
+          {vaccinatedError && (
+            <p className="error error-place2">{vaccinatedError}</p>
+          )}
           <form onChange={({ target }) => vaccinatedHandler(target.value)}>
             <div className={classes.options}>
               <input
@@ -241,7 +247,7 @@ const CovidInformation = () => {
             When did you get your last covid vaccine?
           </p>
           {vaccinatedDateError && (
-            <p className="error">{vaccinatedDateError}</p>
+            <p className="error error-place2">{vaccinatedDateError}</p>
           )}
           <input
             className={`field ${classes["date-input"]}`}

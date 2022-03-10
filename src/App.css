@@ -124,3 +124,10 @@
   background-color: #454545;
   min-height: 100vh;
 }
+.error-place {
+  margin-left: auto !important;
+}
+.error-place2 {
+  margin-right: auto !important;
+  margin-left: 0px !important;
+}
